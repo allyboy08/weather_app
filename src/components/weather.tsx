@@ -6,6 +6,7 @@ interface WeatherData {
   name: string;
   weather: {
     description: string;
+    icon: string
   }[];
   main: {
     temp: number;
@@ -48,6 +49,10 @@ const Weather: React.FC = () => {
       {weather && (
         <>
           <h2>{weather.name}</h2>
+          <img
+            src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
+            alt="weather icon"
+          />
           <p>{weather.weather[0].description}</p>
           <p>Current Temperature: {weather.main.temp} °C</p>
           <p>Temperature Low: {weather.main.temp_min} °C</p>
